@@ -16,4 +16,41 @@
 
 "use strict";
 
-platform.console.log('js-lite', 'Skip Test');
+import { CountryInfo } from "./modules/countryInfo.js"
+import { ISO639_1 } from "./modules/iso639-1.js"
+import { Locales } from "./globals/locale.js"
+
+/** Build Language to Country Map */
+
+/** @type {Object<string, string>} */
+let oLang = {};
+/** @type {Object<string, number>} */
+let oPopulation = {};
+
+for (let sKey in CountryInfo) {
+	/** @type {Array<string>} */ let oCountryInfo = CountryInfo[sKey];
+	/** @type {Array<string>} */ let aLanguages = oCountryInfo[14].split(',');
+	/** @type {string} */ let sLang = aLanguages[0].substr(0, 2);
+	/** @type {number} */ let iPopulation = oCountryInfo[6] | 0;
+	if (sLang.length > 0) {
+		if ((oLang[sLang] === undefined) || (oPopulation[sLang] < iPopulation)) {
+			oLang[sLang] = sKey;
+			oPopulation[sLang] = iPopulation;
+		}
+	}
+}
+
+oLang['en'] = 'US'; // Искусственное возвышение значимости, несмотря на то что большее число говорящих на англ в Индии :)
+
+// Uncomment for update LanguageInfo
+//platform.console.log(JSON.stringify(oLang));
+
+/** Example Usage */
+
+for (let iIndex in Locales) {
+	let sLocale = Locales[iIndex | 0];
+	let sLanguage = sLocale.substr(0, 2);
+	let sCountry = sLocale.substr(-2);
+	
+	platform.console.log('[' + sLocale + '] ' + ISO639_1[sLanguage]['name'] + ' (' + CountryInfo[sCountry][3] + ')');
+}
