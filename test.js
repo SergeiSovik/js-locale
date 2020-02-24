@@ -24,6 +24,7 @@ import { Locales } from "./globals/locale.js"
 
 /** @type {Object<string, string>} */
 let oLang = {};
+
 /** @type {Object<string, number>} */
 let oPopulation = {};
 
