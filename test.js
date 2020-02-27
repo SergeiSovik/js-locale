@@ -47,7 +47,6 @@ oLang['en'] = 'US'; // Искусственное возвышение знач�
 //platform.console.log(JSON.stringify(oLang));
 
 /** Example Usage */
-
 for (let iIndex in Locales) {
 	let sLocale = Locales[iIndex | 0];
 	let sLanguage = sLocale.substr(0, 2);
