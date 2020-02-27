@@ -1,6 +1,6 @@
 /*
  * Original Work http://download.geonames.org/export/dump/countryInfo.txt
- * Modified work Copyright 2020 Sergio Rando <segio.rando@yahoo.com>
+ * Modified work Copyright 2020 Sergei Sovik <sergeisovik@yahoo.com>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
