@@ -20,6 +20,8 @@ import { CountryInfo } from "./modules/countryInfo.js"
 import { ISO639_1 } from "./modules/iso639-1.js"
 import { Locales } from "./globals/locale.js"
 
+//platform.console.log('js-locale', 'Skip Test');
+
 /** Build Language to Country Map */
 
 /** @type {Object<string, string>} */
